@@ -63,17 +63,30 @@ def _preprocess_data(data):
     feature_vector_df = feature_vector_df[feature_vector_df.Commodities.str.contains("APPLE GOLDEN DELICIOUS")]
     predict_vector = feature_vector_df[["Weight_Kg","Low_Price","High_Price","Sales_Total","Total_Qty_Sold","Total_Kg_Sold","Stock_On_Hand"]]
     
+<<<<<<< Updated upstream
+=======
+    feature_vector_df = feature_vector_df[feature_vector_df.Commodities.str.contains("APPLE GOLDEN DELICIOUS")].index
+    predict_vector = feature_vector_df[["Weight_Kg","Low_Price","High_Price","Sales_Total","Total_Qty_Sold","Total_Kg_Sold","Stock_On_Hand"]]
+    
+>>>>>>> Stashed changes
     
     Region = LabelEncoder()
     Apple_Container = LabelEncoder()
     Grade = LabelEncoder()
 
+<<<<<<< Updated upstream
     predict_vector["Province_n"] = Region.fit_transform(predict_vector["Province"])
     predict_vector["Container_n"] = Apple_Container.fit_transform(predict_vector["Container"])
     predict_vector["Size_Grade_n"] = Grade.fit_transform(predict_vector["Size_Grade"])
 
     
     
+=======
+    predict_vector["Province_n"] = Region.fit_transform(feature_vector_df["Province"])
+    predict_vector["Container_n"] = Apple_Container.fit_transform(feature_vector_df["Container"])
+    predict_vector["Size_Grade_n"] = Grade.fit_transform(feature_vector_df["Size_Grade"])
+
+>>>>>>> Stashed changes
     #feature_vector_df = feature_vector_df[(feature_vector_df['Commodities'] == 'APPLE GOLDEN DELICIOUS')]
     #predict_vector = feature_vector_df[['Total_Qty_Sold','Stock_On_Hand']]
                                 
